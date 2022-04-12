@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Car from '../Cars/Car';
 import Banner from './Banne/Banner';
 import Contact from './ContactPage/Contact';
+import Container from '@mui/material/Container';
 
 const Home = () => {
     const [cars, setCars] = useState([])
@@ -11,10 +12,11 @@ const Home = () => {
 
     }, [])
     return (
-        <main>
+        <Container>
             <Banner></Banner>
-            
+            <h1 className="text-2xl font-extrabold subpixel-antialiased text-orange-600">Our Featured Cars For You </h1>
       <section className="grid md:grid-cols-3 ms-5 gap-1">
+         
       {
 
 cars.map(car => <Car
@@ -24,7 +26,7 @@ cars.map(car => <Car
 }
       </section>
       <Contact></Contact>
-        </main>
+        </Container>
     );
 };
 
