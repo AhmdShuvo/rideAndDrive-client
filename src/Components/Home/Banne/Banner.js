@@ -22,13 +22,7 @@ const Banner = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-                    <a href="#" className="font-medium text-gray-500 hover:text-gray-900">Product</a>
-                    <a href="#" className="font-medium text-gray-500 hover:text-gray-900">Features</a>
-                    <a href="#" className="font-medium text-gray-500 hover:text-gray-900">Marketplace</a>
-                    <a href="#" className="font-medium text-gray-500 hover:text-gray-900">Company</a>
-                    <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
-                  </div>
+                
                 </nav>
               </div>
               {/*
@@ -63,7 +57,7 @@ const Banner = () => {
           </div>
         </div>
         <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-          <img className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="" />
+          <img className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://maserati.scene7.com/is/image/maserati/maserati/international/Models/my22/mc-special-edition/MC_Edition_dekstop.jpg?$1920x2000$&fit=constrain" alt="" />
         </div>
       </div>
     );

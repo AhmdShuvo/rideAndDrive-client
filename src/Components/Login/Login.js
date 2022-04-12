@@ -1,39 +1,90 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 import './Login.css'
 const Login = () => {
+
+	const {Login,setIsLoadng,GoogleLogin,saveGoogleUsertoDb}=useAuth()
+
+	const [logInData,setData]=useState({})
+   
+	const location=useLocation()
+
+	const url=location.state?.from.location.pathname||"/home"
+   
+   
+	const handleGoogle=()=>{
+	  GoogleLogin().then(result=>{
+	   saveGoogleUsertoDb(result.user.email,result.user.displayName)
+
+	  });
+	}
+	   
+   
+	 const handleChange=e=>{
+	  const field= e.target.name
+	  const value=e.target.value
+   const newLogindata={...logInData}
+   newLogindata[field]=value;
+   setData(newLogindata)
+   console.log(newLogindata);
+
+	 }
+   
+	 const handleLogin=e=>{
+	   e.preventDefault()
+	   
+			 Login(logInData.email,logInData.password).then((userCredential) => {
+			   // Signed in 
+			   
+			   const user = userCredential.user;
+			  
+			   // ...
+			 })
+			 .catch((error) => {
+			   const errorCode = error.code;
+			   const errorMessage = error.message;
+			 }).finally(()=>{
+			   setIsLoadng(false);
+			 });
+			}
     return (
        <section className="body">
-            <div class="containers">
-	<div class="screen">
-		<div class="screen__content">
-			<form class="login">
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="User name / Email"/>
+            <div className="containers">
+	<div className="screen">
+		<div className="screen__content">
+			<form className="login">
+				<div className="login__field">
+					<i className="login__icon fas fa-user"></i>
+					<input onChange={handleChange} name="email" type="text" className="login__input" placeholder="Email"/>
 				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Password"/>
+				<div className="login__field">
+					<i className="login__icon fas fa-lock"></i>
+					<input onChange={handleChange} name="password" type="password" className="login__input" placeholder="Password"/>
 				</div>
-				<button class="button login__submit">
-					<span class="button__text">Log In Now</span>
-					<i class="button__icon fas fa-chevron-right"></i>
+				<button className="button login__submit">
+					<span className="button__text">Log In Now</span>
+					<i className="button__icon fas fa-chevron-right"></i>
 				</button>				
+				<Link to="/signup" className="button login__submit">
+					<span className="button__text">New User?</span>
+					<i className="button__icon fas fa-chevron-right"></i>
+				</Link>	
+				<br /><br />			
 			</form>
-			<div class="social-login">
+			<div className="social-login">
 				<h3>log in via</h3>
-				<div class="social-icons">
-					<button  class="social-login__icon fab fa-instagram"></button>
-					<a href="#" class="social-login__icon fab fa-facebook"></a>
-					<a href="#" class="social-login__icon fab fa-twitter"></a>
+				<div className="social-icons">
+					<button onClick={handleGoogle}  className="social-login__icon fab fa-google"> </button>
+					
 				</div>
 			</div>
 		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
+		<div className="screen__background">
+			<span className="screen__background__shape screen__background__shape4"></span>
+			<span className="screen__background__shape screen__background__shape3"></span>		
+			<span className="screen__background__shape screen__background__shape2"></span>
+			<span className="screen__background__shape screen__background__shape1"></span>
 		</div>		
 	</div>
 </div>
