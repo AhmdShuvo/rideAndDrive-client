@@ -5,13 +5,13 @@ import useAuth from '../../../Hooks/useAuth';
 const Navbar = () => {
 
   const {user,LogOUt}=useAuth()
-  console.log(user);
+ 
 
     return (
          <nav className="bg-slate-500  border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <Link to="/" className="flex items-center">
-            <img src="./logo.png" className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+            <img src="./logo.png" className="mr-3 h-6 sm:h-9" alt="" />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Ride And Drive</span>
           </Link>
           <div className="flex items-center md:order-2">
@@ -26,7 +26,7 @@ const Navbar = () => {
               </div>
               <ul className="py-1" aria-labelledby="dropdown">
                 <li>
-                  <a href="dashboard" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                  <a href="/dashboard" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
                 </li>
                 <li>
                   <a href="#" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>

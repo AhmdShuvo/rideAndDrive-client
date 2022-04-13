@@ -8,7 +8,7 @@ const Home = () => {
     const [cars, setCars] = useState([])
 
     useEffect(() => {
-        fetch("https://enigmatic-escarpment-30976.herokuapp.com/cars").then(res => res.json()).then(data => setCars(data.slice(0, 6)))
+        fetch("http://localhost:9000/cars").then(res => res.json()).then(data => setCars(data.slice(0, 6)))
 
     }, [])
     return (

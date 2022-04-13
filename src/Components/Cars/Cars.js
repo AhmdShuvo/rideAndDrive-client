@@ -1,4 +1,4 @@
-import { Container } from 'postcss';
+
 import React, { useEffect, useState } from 'react';
 import Car from './Car';
 
@@ -6,7 +6,7 @@ const Cars = () => {
     const [cars,setCars]=useState([])
 
     useEffect(()=>{
-        fetch("https://enigmatic-escarpment-30976.herokuapp.com/cars").then(res=>res.json()).then(data=>setCars(data))
+        fetch("http://localhost:9000/cars").then(res=>res.json()).then(data=>setCars(data))
 
     },[])
     return (

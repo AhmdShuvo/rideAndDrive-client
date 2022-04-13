@@ -28,7 +28,7 @@ history(url)
 		const newLogindata = { ...logInData }
 		newLogindata[field] = value;
 		setData(newLogindata)
-		console.log(newLogindata);
+		
 
 	}
 

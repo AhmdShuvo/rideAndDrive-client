@@ -10,7 +10,7 @@ const SignUp = () => {
     const history = useNavigate()
     
   const location = useLocation()
-    const url = location.state?.from.pathname || "/"
+    const url = location.state?.from.pathname || "dashboard"
     
     
     
@@ -26,7 +26,7 @@ const SignUp = () => {
    const newLogindata={...logInData}
    newLogindata[ field ]=value;
    setData(newLogindata)
-   console.log(newLogindata);
+
    
 
    
