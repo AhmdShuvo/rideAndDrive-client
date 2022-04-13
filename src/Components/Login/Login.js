@@ -11,7 +11,7 @@ const Login = () => {
 
 	const location = useLocation()
 	const history = useNavigate()
-	const url = location.state?.from.location.pathname || "/"
+	const url = location.state?.from.pathname  || "/dashboard"
 
 
 	const handleGoogle = () => {

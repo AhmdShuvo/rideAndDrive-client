@@ -8,7 +8,7 @@ const Myorders = () => {
 
     const { user } = useAuth();
     const [success, setSuccess] = useState();
-const url=`http://localhost:9000/order/${user.email}`;
+
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
@@ -18,13 +18,13 @@ const url=`http://localhost:9000/order/${user.email}`;
                 setOrders(data);
             });
     }, [user.email]);
-    console.log(url);
-    console.log(orders);
+   
+
 
     const removeOrderHandler = (id) => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed === true) {
-            const url = `http://localhost:9000/order/${id}`;
+            const url = `http://localhost:9000/orders/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
@@ -55,6 +55,7 @@ if(orders.length===0){
             orders.map(order=> <Order
             key={order._id}
             order={order}
+            removeOrderHandler={removeOrderHandler}
             ></Order>)
        
           

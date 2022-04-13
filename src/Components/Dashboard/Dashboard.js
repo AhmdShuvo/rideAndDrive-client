@@ -18,6 +18,9 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { Link, Outlet } from 'react-router-dom';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 const drawerWidth = 240;
 
@@ -127,20 +130,20 @@ export default function PersistentDrawerLeft() {
                         </ListItem></Link>
                    <Link to="orders"> <ListItem button key={"My Orders"}>
                         <ListItemIcon>
-                            <MailIcon />
+                            <ShoppingCartIcon/>
                         </ListItemIcon>
                         <ListItemText primary={'My Orders'} />
                     </ListItem></Link>
                   <Link to="manage">  <ListItem button key={"Manage"}>
                         <ListItemIcon>
-                            <MailIcon />
+                            <ManageAccountsIcon />
                         </ListItemIcon>
                         <ListItemText primary={'Manage'} />
                     </ListItem></Link>
                     <Link to="addReview">
                         <ListItem button key={"Review"}>
                             <ListItemIcon>
-                                <MailIcon />
+                                <RateReviewIcon />
                             </ListItemIcon>
                             <ListItemText primary={'Review'} />
                         </ListItem></Link>

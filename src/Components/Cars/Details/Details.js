@@ -8,10 +8,9 @@ import useAuth from '../../../Hooks/useAuth'
 const Details = () => {
     const [userInfo,setInfo]=useState({})
     const {user}= useAuth()
-    console.log(user);
-
+  
     const {id}=useParams();
-    console.log(id);
+  
     const [order,setOrder]=useState({})
 
     useEffect(()=>{
@@ -24,7 +23,7 @@ const Details = () => {
         })
 
     },[id])
-    console.log(order);
+
     if(!order){
         return <Loader></Loader>
     }

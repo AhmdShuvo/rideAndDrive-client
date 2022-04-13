@@ -3,14 +3,20 @@ import Car from '../Cars/Car';
 import Banner from './Banne/Banner';
 import Contact from './ContactPage/Contact';
 import Container from '@mui/material/Container';
+import Review from './Review/Review';
+import Loader from '../Shared/Loader/Loader'
 
 const Home = () => {
     const [cars, setCars] = useState([])
+   
 
     useEffect(() => {
         fetch("http://localhost:9000/cars").then(res => res.json()).then(data => setCars(data.slice(0, 6)))
 
     }, [])
+    if(cars.length===0){
+        return <Loader />
+    }
     return (
         <Container>
             <Banner></Banner>
@@ -25,7 +31,9 @@ cars.map(car => <Car
 ></Car>)
 }
       </section>
+      <Review></Review>
       <Contact></Contact>
+
         </Container>
     );
 };

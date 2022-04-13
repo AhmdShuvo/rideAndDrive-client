@@ -1,11 +1,11 @@
-import logo from './logo.svg';
+
 import './App.css';
 import AuthProvider from './Contexts/AuthProvider';
 import {
   BrowserRouter,
   Routes,
   Route,
-  Link,
+  
 } from "react-router-dom";
 import Home from './Components/Home/Home';
 import Navbar from './Components/Shared/Navbar/Navbar';
@@ -21,6 +21,7 @@ import AddReview from './Components/Dashboard/AddReview/AddReview';
 import DashboardHoeme from './Components/Dashboard/Home/DashboardHoeme';
 import About from './Components/About/About';
 import Details from '../src/Components/Cars/Details/Details'
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -35,7 +36,26 @@ function App() {
           <Route path='contact' element={<Contact />} />
           <Route path='signup' element={<SignUp />} />
           <Route path='cars' element={<Cars />} />
-          <Route path='cars/:id' element={<Details/>} />
+          <Route
+            path='cars/:id'
+            element={
+              <PrivateRoute>
+                {' '}
+                <Details/>
+              </PrivateRoute>
+            }
+          ></Route>
+          <Route
+            path=':id'
+            element={
+              <PrivateRoute>
+                {' '}
+                <Details/>
+              </PrivateRoute>
+            }
+          ></Route>
+          
+          
           <Route path='dashboard'
             element={<ResponsiveDrawer />}>
             <Route path={'/dashboard'} element={<DashboardHoeme />}></Route>
