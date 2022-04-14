@@ -21,6 +21,10 @@ import { Link, Outlet } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import useAuth from '../../Hooks/useAuth';
+import AddIcon from '@mui/icons-material/Add';
+import HomeWorkIcon from '@mui/icons-material/HomeWork';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 const drawerWidth = 240;
 
@@ -70,6 +74,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function PersistentDrawerLeft() {
+    const { user, LogOUt, admin } = useAuth();
+   
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -86,79 +92,98 @@ export default function PersistentDrawerLeft() {
             <CssBaseline />
             <AppBar position="fixed" open={open}>
                 <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
-                        sx={{ mr: 2, ...(open && { display: 'none' }) }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" noWrap component="div">
-                       Dashboard
-                    </Typography>
+<IconButton
+    color="inherit"
+    aria-label="open drawer"
+    onClick={handleDrawerOpen}
+    edge="start"
+    sx={{ mr: 2, ...(open && { display: 'none' }) }}
+>
+    <MenuIcon />
+</IconButton>
+<Typography variant="h6" noWrap component="div">
+    Dashboard
+</Typography>
                 </Toolbar>
             </AppBar>
             <Drawer
                 sx={{
-                    width: drawerWidth,
-                    flexShrink: 0,
-                    '& .MuiDrawer-paper': {
-                        width: drawerWidth,
-                        boxSizing: 'border-box',
-                    },
+width: drawerWidth,
+flexShrink: 0,
+'& .MuiDrawer-paper': {
+    width: drawerWidth,
+    boxSizing: 'border-box',
+},
                 }}
                 variant="persistent"
                 anchor="left"
                 open={open}
             >
                 <DrawerHeader>
-                    <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                    </IconButton>
+<IconButton onClick={handleDrawerClose}>
+    {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+</IconButton>
                 </DrawerHeader>
                 <Divider />
                 <List>
 
-                    <Link to='/' >
-                        <ListItem button key={"Home"}>
-                            <ListItemIcon>
-                                <MailIcon />
-                            </ListItemIcon>
-                            <ListItemText primary={'Home'} />
-                        </ListItem></Link>
-                   <Link to="orders"> <ListItem button key={"My Orders"}>
-                        <ListItemIcon>
-                            <ShoppingCartIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary={'My Orders'} />
-                    </ListItem></Link>
-                  <Link to="manage">  <ListItem button key={"Manage"}>
-                        <ListItemIcon>
-                            <ManageAccountsIcon />
-                        </ListItemIcon>
-                        <ListItemText primary={'Manage'} />
-                    </ListItem></Link>
-                    <Link to="addReview">
-                        <ListItem button key={"Review"}>
-                            <ListItemIcon>
-                                <RateReviewIcon />
-                            </ListItemIcon>
-                            <ListItemText primary={'Review'} />
-                        </ListItem></Link>
+<Link to='/' >
+    <ListItem button key={"Home"}>
+        <ListItemIcon>
+            <HomeWorkIcon />
+        </ListItemIcon>
+        <ListItemText primary={'Home'} />
+    </ListItem></Link>
+                  {!admin &&   <Link to="orders"> <ListItem button key={"My Orders"}>
+    <ListItemIcon>
+        <ShoppingCartIcon />
+    </ListItemIcon>
+    <ListItemText primary={'My Orders'} />
+</ListItem></Link>}
+
+                  {admin &&   <Link to="manage">  <ListItem button key={"Manage"}>
+    <ListItemIcon>
+        <ManageAccountsIcon />
+    </ListItemIcon>
+    <ListItemText primary={'Manage'} />
+</ListItem></Link>}
+
+
+                  {admin &&   <Link to="newproduct">  <ListItem button key={"Manage"}>
+    <ListItemIcon>
+        <AddIcon/>
+    </ListItemIcon>
+    <ListItemText primary={'AddNewProduct'} />
+</ListItem></Link>}
+                  {admin &&   <Link to="Make Admin">  <ListItem button key={"Manage"}>
+    <ListItemIcon>
+        <AdminPanelSettingsIcon/>
+    </ListItemIcon>
+    <ListItemText primary={'Make Admin'} />
+</ListItem></Link>}
+
+
+<Link to="addReview">
+    <ListItem button key={"Review"}>
+        <ListItemIcon>
+            <RateReviewIcon />
+        </ListItemIcon>
+        <ListItemText primary={'Review'} />
+    </ListItem></Link>
 
                 </List>
                 <Divider />
                 <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
+                  
+  <Link to={'/'}>  <ListItem onClick={LogOUt} button key="Sign Out">
+        <ListItemIcon>
+             <InboxIcon />
+             
+        </ListItemIcon>
+        <ListItemText primary="Sign Out" />
+    </ListItem>
+    </Link>
+                  
                 </List>
             </Drawer>
             <Main open={open}>

@@ -22,6 +22,7 @@ import DashboardHoeme from './Components/Dashboard/Home/DashboardHoeme';
 import About from './Components/About/About';
 import Details from '../src/Components/Cars/Details/Details'
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import AddNew from './Components/Dashboard/AddNew/AddNew'
 
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
             <Route path='manage' element={<ManageOrders />} />
             <Route path='addReview' element={<AddReview />}></Route>
             <Route path='orders' element={<Myorders />}></Route>
+            <Route path='newproduct' element={<AddNew />}></Route>
            
           </Route>
         </Routes>
