@@ -7,7 +7,7 @@ const Review = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:9000/reviews').then(res => res.json()).then(data => {
+        fetch('https://rideanddrive-server.onrender.com/reviews').then(res => res.json()).then(data => {
             setreviews(data)
         })
     }, [])

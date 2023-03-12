@@ -87,7 +87,7 @@ const Login=(email,password)=>{
 
 useEffect(()=>{
 
-  fetch(`http://localhost:9000/user/admin/${user.email}`).then(res=>res.json()).then(data=>setIsAdmin(data.admin))
+  fetch(`https://rideanddrive-server.onrender.com/user/admin/${user.email}`).then(res=>res.json()).then(data=>setIsAdmin(data.admin))
 
 },[user.email])
  
@@ -117,7 +117,7 @@ const saveUsertoDb=(email,displayName)=>{
 
   const user={email,displayName};
 
-  fetch('http://localhost:9000/users',{
+  fetch('https://rideanddrive-server.onrender.com/users',{
     method:'POST',
     headers:{ "content-type": 'application/json'},
            body:JSON.stringify(user)
@@ -128,7 +128,7 @@ const saveGoogleUsertoDb=(email,displayName)=>{
 
   const user={email,displayName};
 
-  fetch('http://localhost:9000/users',{
+  fetch('https://rideanddrive-server.onrender.com/users',{
     method:'POST',
     headers:{ "content-type": 'application/json'},
            body:JSON.stringify(user)

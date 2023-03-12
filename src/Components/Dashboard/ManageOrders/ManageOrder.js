@@ -6,7 +6,7 @@ const ManageOrder = ({order, quantity, removeOrderHandler}) => {
   
     
   const updateStatus = (id) => {
-    fetch(`http://localhost:9000/orders/${id}`, {
+    fetch(`https://rideanddrive-server.onrender.com/orders/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',

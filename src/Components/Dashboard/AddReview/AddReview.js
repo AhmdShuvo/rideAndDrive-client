@@ -25,7 +25,7 @@ const AddReview = () => {
         ratingInfo.users = userdata;
         ratingInfo.img = ratingInfo.img ? ratingInfo.img : user.photoURL;
        
-        fetch('http://localhost:9000/reviews', {
+        fetch('https://rideanddrive-server.onrender.com/reviews', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
           body: JSON.stringify(ratingInfo),

@@ -11,7 +11,7 @@ const Home = () => {
    
 
     useEffect(() => {
-        fetch("http://localhost:9000/cars").then(res => res.json()).then(data => setCars(data.slice(0, 6)))
+        fetch("https://rideanddrive-server.onrender.com/cars").then(res => res.json()).then(data => setCars(data.slice(0, 6)))
 
     }, [])
     if(cars.length===0){

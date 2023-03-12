@@ -14,7 +14,7 @@ const Details = () => {
     const [order,setOrder]=useState({})
 
     useEffect(()=>{
-        fetch("http://localhost:9000/cars").then(res=>res.json()).then(data=>{
+        fetch("https://rideanddrive-server.onrender.com/cars").then(res=>res.json()).then(data=>{
 
 
         const match=data.find(car=>car._id===id);
@@ -58,7 +58,7 @@ const Details = () => {
         userData.status="pending"
                   
  //   POST REQUEST //
-    fetch(`http://localhost:9000/orders`,{
+    fetch(`https://rideanddrive-server.onrender.com/orders`,{
        method:'POST',
        headers:{ "content-type": 'application/json'},
               body:JSON.stringify(userData)

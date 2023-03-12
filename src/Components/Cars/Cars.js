@@ -7,7 +7,7 @@ const Cars = () => {
     const [cars,setCars]=useState([])
 
     useEffect(()=>{
-        fetch("http://localhost:9000/cars").then(res=>res.json()).then(data=>setCars(data))
+        fetch("https://rideanddrive-server.onrender.com/cars").then(res=>res.json()).then(data=>setCars(data))
 
     },[])
 

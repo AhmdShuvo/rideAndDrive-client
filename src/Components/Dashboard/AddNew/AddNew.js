@@ -19,7 +19,7 @@ const AddNew = () => {
      const handleUpload=e=>{
  
                  const data=CarData
-               fetch("http://localhost:9000/cars",{
+               fetch("https://rideanddrive-server.onrender.com/cars",{
          
               method:"POST",headers:{"content-type":'application/json'},
               body:JSON.stringify(data)

@@ -12,7 +12,7 @@ const Myorders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:9000/order/${user.email}`)
+        fetch(`https://rideanddrive-server.onrender.com/order/${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setOrders(data);
@@ -24,7 +24,7 @@ const Myorders = () => {
     const removeOrderHandler = (id) => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed === true) {
-            const url = `http://localhost:9000/orders/${id}`;
+            const url = `https://rideanddrive-server.onrender.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
